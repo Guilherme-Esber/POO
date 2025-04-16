@@ -1,0 +1,40 @@
+#include "CPoligonoRegular.h"
+#include <cmath>
+#include <iostream>
+
+CPoligonoRegular::CPoligonoRegular(int n, int b) {
+    if (n < 3 || n > 10) {
+        throw std::invalid_argument("Número de lados deve ser entre 3 e 10.");
+    }
+    if (b < 1) {
+        throw std::invalid_argument("O comprimento do lado deve ser maior que 0.");
+    }
+    lados = n;
+    comprimentoLado = b;
+}
+
+double CPoligonoRegular::calcularArea() const {
+    double anguloInterno = M_PI / lados;
+    double area = (lados * pow(comprimentoLado, 2)) / (4 * tan(anguloInterno));
+    return area;
+}
+
+double CPoligonoRegular::calcularPerimetro() const {
+    return lados * comprimentoLado;
+}
+
+void CPoligonoRegular::imprimirNome() const {
+    std::string nome;
+    switch(lados) {
+        case 3: nome = "Triângulo"; break;
+        case 4: nome = "Quadrado"; break;
+        case 5: nome = "Pentágono"; break;
+        case 6: nome = "Hexágono"; break;
+        case 7: nome = "Heptágono"; break;
+        case 8: nome = "Octágono"; break;
+        case 9: nome = "Enéágono"; break;
+        case 10: nome = "Decágono"; break;
+        default: nome = "Polígono desconhecido"; break;
+    }
+    std::cout << "Este é um " << nome << "." << std::endl;
+}
