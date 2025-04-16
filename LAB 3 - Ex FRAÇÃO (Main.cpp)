@@ -5,31 +5,26 @@ using namespace std;
 int main() {
     int num1, den1, num2, den2;
 
-    // Entrada de dados para a primeira fração
     cout << "Digite o numerador da primeira fração: ";
     cin >> num1;
     cout << "Digite o denominador da primeira fração: ";
     cin >> den1;
 
-    // Validar denominador
     while (den1 == 0) {
         cout << "Denominador não pode ser zero. Digite novamente: ";
         cin >> den1;
     }
 
-    // Entrada de dados para a segunda fração
     cout << "Digite o numerador da segunda fração: ";
     cin >> num2;
     cout << "Digite o denominador da segunda fração: ";
     cin >> den2;
 
-    // Validar denominador
     while (den2 == 0) {
         cout << "Denominador não pode ser zero. Digite novamente: ";
         cin >> den2;
     }
 
-    // Criando frações com os valores informados
     CFracao f1(num1, den1);
     CFracao f2(num2, den2);
 
@@ -38,33 +33,27 @@ int main() {
     cout << "\nFração 2: ";
     f2.Print();
 
-    // Soma
     CFracao soma = f1.Somar(f2);
     cout << "\n\nSoma: ";
     soma.Print();
 
-    // Subtração
     CFracao subtracao = f1.Subtrair(f2);
     cout << "\nSubtração: ";
     subtracao.Print();
 
-    // Multiplicação
     CFracao multiplicacao = f1.Multiplicar(f2);
     cout << "\nMultiplicação: ";
     multiplicacao.Print();
 
-    // Divisão
     CFracao divisao = f1.Dividir(f2);
     cout << "\nDivisão: ";
     divisao.Print();
 
-    // Comparações
     cout << "\n\nComparações:";
     cout << "\nFração 1 < Fração 2? " << (f1.MenorQue(f2) ? "Sim" : "Não");
     cout << "\nFração 1 > Fração 2? " << (f1.MaiorQue(f2) ? "Sim" : "Não");
     cout << "\nFração 1 == Fração 2? " << (f1.Igual(f2) ? "Sim" : "Não");
 
-    // Como float
     cout << "\n\nFração 1 como float: " << f1.ComoFloat();
     cout << "\nFração 2 como float: " << f2.ComoFloat();
 
