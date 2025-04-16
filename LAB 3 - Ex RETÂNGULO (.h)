@@ -1,0 +1,36 @@
+#ifndef CRETANGULO_H
+#define CRETANGULO_H
+
+#include <iostream>
+#include <stdexcept>
+
+class CRetangulo {
+private:
+    int comprimento;
+    int largura;
+
+public:
+    CRetangulo();  // untitledConstrutor padrão
+    CRetangulo(int c, int l);  // Construtor com parâmetros
+
+    // Métodos de acesso
+    int getComprimento() const;
+    int getLargura() const;
+    void setComprimento(int c);
+    void setLargura(int l);
+
+    // Métodos de cálculo
+    int calcularArea() const;
+    int calcularPerimetro() const;
+
+    // Verifica se é quadrado
+    bool eQuadrado() const;
+
+    // Método para imprimir o retângulo
+    void imprimirRetangulo() const;
+
+    // Métodos para criação e destruição
+    ~CRetangulo();  // Destruidor
+};
+
+#endif  // CRETANGULO_H
