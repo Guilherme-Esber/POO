@@ -1,31 +1,33 @@
+#include "CRetangulo.h"
 #include <iostream>
-#include "CFracao.h"
 
 int main() {
-    try {
-        // Criando frações
-        CFracao f1(3, 4);   // Fração 3/4
-        CFracao f2(5, 6);   // Fração 5/6
-        
-        // Imprimindo as frações
-        std::cout << "Fração 1: ";
-        f1.imprimir();  // Esperado: 3/4
+    // Criando um vetor de 5 objetos retângulos
+    CRetangulo* retangulos[5];  // Usando ponteiros para instanciar os retângulos
 
-        std::cout << "Fração 2: ";
-        f2.imprimir();  // Esperado: 5/6
-        
-        // Somando as frações
-        CFracao soma = f1 + f2;
+    // Definindo as dimensões de cada retângulo
+    for (int i = 0; i < 5; i++) {
+        std::cout << "Digite as dimensões do retângulo " << i + 1 << ":\n";
+        int c, l;
+        std::cout << "Comprimento (1 a 20): ";
+        std::cin >> c;
+        std::cout << "Largura (1 a 20): ";
+        std::cin >> l;
+        retangulos[i] = new CRetangulo(c, l);  // Aqui chamamos o construtor com parâmetros
+    }
 
-        std::cout << "Soma das frações: ";
-        soma.imprimir();  // Esperado: 19/12 (não simplificado)
-        
-        // A fração soma já será simplificada automaticamente
-        std::cout << "Soma simplificada: ";
-        soma.imprimir();  // Esperado: 19/12 (já simplificada)
+    // Exibindo os retângulos
+    for (int i = 0; i < 5; i++) {
+        std::cout << "\nRetângulo " << i + 1 << ":\n";
+        retangulos[i]->imprimirRetangulo();
+        std::cout << "Área: " << retangulos[i]->calcularArea() << "\n";
+        std::cout << "Perímetro: " << retangulos[i]->calcularPerimetro() << "\n";
+        std::cout << (retangulos[i]->eQuadrado() ? "É um quadrado." : "Não é um quadrado.") << "\n";
+    }
 
-    } catch (const std::exception& e) {
-        std::cerr << "Erro: " << e.what() << std::endl;
+    // Liberando a memória dos objetos
+    for (int i = 0; i < 5; i++) {
+        delete retangulos[i];
     }
 
     return 0;
