@@ -15,7 +15,7 @@ public:
 
     // Métodos
     double calcularArea() const;          // Método para calcular a área
-    int calcularPerimetro() const;        // Método para calcular o perímetro
+    double calcularPerimetro() const;     // Método para calcular o perímetro
     void imprimirNome() const;            // Método para imprimir o nome do polígono
 };
 
