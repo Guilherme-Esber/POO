@@ -3,26 +3,33 @@
 
 int main() {
     try {
-        // Criando frações
-        CFracao f1(3, 4);   // Fração 3/4
-        CFracao f2(5, 6);   // Fração 5/6
+        int n1, d1, n2, d2;
+
+        // Solicitando ao usuário as frações
+        std::cout << "Digite o numerador e o denominador da primeira fracao: ";
+        std::cin >> n1 >> d1;
+        CFracao f1(n1, d1);   // Fração 1 com valores fornecidos pelo usuário
+
+        std::cout << "Digite o numerador e o denominador da segunda fracao: ";
+        std::cin >> n2 >> d2;
+        CFracao f2(n2, d2);   // Fração 2 com valores fornecidos pelo usuário
         
         // Imprimindo as frações
         std::cout << "Fração 1: ";
-        f1.imprimir();  // Esperado: 3/4
+        f1.imprimir();
 
         std::cout << "Fração 2: ";
-        f2.imprimir();  // Esperado: 5/6
+        f2.imprimir();
         
         // Somando as frações
         CFracao soma = f1 + f2;
 
         std::cout << "Soma das frações: ";
-        soma.imprimir();  // Esperado: 19/12 (não simplificado)
+        soma.imprimir();  // Soma das frações, não simplificada
         
         // A fração soma já será simplificada automaticamente
         std::cout << "Soma simplificada: ";
-        soma.imprimir();  // Esperado: 19/12 (já simplificada)
+        soma.imprimir();  // Soma já simplificada
 
     } catch (const std::exception& e) {
         std::cerr << "Erro: " << e.what() << std::endl;
