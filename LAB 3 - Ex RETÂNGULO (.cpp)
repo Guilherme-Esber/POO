@@ -12,7 +12,7 @@ CRetangulo::CRetangulo(int c, int l) {
     }
     comprimento = c;
     largura = l;
-    cout << "O retângulo está sendo criado com dimensões (" << comprimento << "x" << largura << ")." << endl; de criação
+    cout << "O retângulo está sendo criado com dimensões (" << comprimento << "x" << largura << ")." << endl;
     cout << endl;
 }
 
