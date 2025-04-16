@@ -1,5 +1,6 @@
 #include "CRetangulo.h"
 #include <iostream>
+using namespace std;
 
 int main() {
     // Criando um vetor de 5 objetos retângulos
@@ -7,22 +8,22 @@ int main() {
 
     // Definindo as dimensões de cada retângulo
     for (int i = 0; i < 5; i++) {
-        std::cout << "Digite as dimensões do retângulo " << i + 1 << ":\n";
+        cout << "Digite as dimensões do retângulo " << i + 1 << ":\n";
         int c, l;
-        std::cout << "Comprimento (1 a 20): ";
-        std::cin >> c;
-        std::cout << "Largura (1 a 20): ";
-        std::cin >> l;
+        cout << "Comprimento (1 a 20): ";
+        cin >> c;
+        cout << "Largura (1 a 20): ";
+        cin >> l;
         retangulos[i] = new CRetangulo(c, l);  // Aqui chamamos o construtor com parâmetros
     }
 
     // Exibindo os retângulos
     for (int i = 0; i < 5; i++) {
-        std::cout << "\nRetângulo " << i + 1 << ":\n";
+        cout << "\nRetângulo " << i + 1 << ":\n";
         retangulos[i]->imprimirRetangulo();
-        std::cout << "Área: " << retangulos[i]->calcularArea() << "\n";
-        std::cout << "Perímetro: " << retangulos[i]->calcularPerimetro() << "\n";
-        std::cout << (retangulos[i]->eQuadrado() ? "É um quadrado." : "Não é um quadrado.") << "\n";
+        cout << "Área: " << retangulos[i]->calcularArea() << "\n";
+        cout << "Perímetro: " << retangulos[i]->calcularPerimetro() << "\n";
+        cout << (retangulos[i]->eQuadrado() ? "É um quadrado." : "Não é um quadrado.") << "\n";
     }
 
     // Liberando a memória dos objetos
