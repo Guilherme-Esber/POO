@@ -1,0 +1,32 @@
+#include <iostream>
+#include "CFracao.h"
+
+int main() {
+    try {
+        // Criando frações
+        CFracao f1(3, 4);   // Fração 3/4
+        CFracao f2(5, 6);   // Fração 5/6
+        
+        // Imprimindo as frações
+        std::cout << "Fração 1: ";
+        f1.imprimir();  // Esperado: 3/4
+
+        std::cout << "Fração 2: ";
+        f2.imprimir();  // Esperado: 5/6
+        
+        // Somando as frações
+        CFracao soma = f1 + f2;
+
+        std::cout << "Soma das frações: ";
+        soma.imprimir();  // Esperado: 19/12 (não simplificado)
+        
+        // A fração soma já será simplificada automaticamente
+        std::cout << "Soma simplificada: ";
+        soma.imprimir();  // Esperado: 19/12 (já simplificada)
+
+    } catch (const std::exception& e) {
+        std::cerr << "Erro: " << e.what() << std::endl;
+    }
+
+    return 0;
+}
