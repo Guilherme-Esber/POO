@@ -26,14 +26,14 @@ int CRetangulo::getLargura() const {
 
 void CRetangulo::setComprimento(int c) {
     if (c < 1 || c > 20) {
-        throw std::invalid_argument("Comprimento deve estar entre 1 e 20.");
+        throw std::invalid_argument("Erro: O comprimento deve estar entre 1 e 20 unidades. Valor fornecido: " + std::to_string(c));
     }
     comprimento = c;
 }
 
 void CRetangulo::setLargura(int l) {
     if (l < 1 || l > 20) {
-        throw std::invalid_argument("Largura deve estar entre 1 e 20.");
+        throw std::invalid_argument("Erro: A largura deve estar entre 1 e 20 unidades. Valor fornecido: " + std::to_string(l));
     }
     largura = l;
 }
