@@ -1,0 +1,22 @@
+#ifndef CPOLIGONO_H
+#define CPOLIGONO_H
+
+#include <iostream>
+#include <cmath>
+
+class CPoligono {
+private:
+    int lados;            // Número de lados
+    int comprimentoLado;  // Comprimento de cada lado
+
+public:
+    // Construtor
+    CPoligono(int n, int c); 
+
+    // Métodos
+    double calcularArea() const;          // Método para calcular a área
+    int calcularPerimetro() const;        // Método para calcular o perímetro
+    void imprimirNome() const;            // Método para imprimir o nome do polígono
+};
+
+#endif
