@@ -1,10 +1,9 @@
 #include <iostream>
-#include "CPoligono.h"  // Apenas inclua o arquivo de cabeçalho
+#include "CPoligono.h"
 using namespace std;
 
 int main() {
     try {
-        // Entrar com o número de lados e comprimento do lado
         int n, b;
         
         cout << "Digite o número de lados do polígono (entre 3 e 10): ";
@@ -12,20 +11,15 @@ int main() {
         cout << "Digite o comprimento de cada lado: ";
         cin >> b;
 
-        // Criando o polígono regular com os valores fornecidos pelo usuário
         CPoligono poligono(n, b);
 
-        // Imprimir o nome do polígono
         poligono.imprimirNome();
 
-        // Calcular e imprimir a área
         cout << "Área: " << poligono.calcularArea() << " unidades" << endl;
 
-        // Calcular e imprimir o perímetro
         cout << "Perímetro: " << poligono.calcularPerimetro() << " unidades" << endl;
 
     } catch (const exception& e) {
-        // Em caso de erro, imprimir a mensagem
         cerr << "Erro: " << e.what() << endl;
     }
 
