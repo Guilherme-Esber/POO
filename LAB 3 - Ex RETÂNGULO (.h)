@@ -10,27 +10,22 @@ private:
     int largura;
 
 public:
-    CRetangulo();  // untitledConstrutor padrão
-    CRetangulo(int c, int l);  // Construtor com parâmetros
+    CRetangulo();
+    CRetangulo(int c, int l);
 
-    // Métodos de acesso
     int getComprimento() const;
     int getLargura() const;
     void setComprimento(int c);
     void setLargura(int l);
 
-    // Métodos de cálculo
     int calcularArea() const;
     int calcularPerimetro() const;
 
-    // Verifica se é quadrado
     bool eQuadrado() const;
 
-    // Método para imprimir o retângulo
     void imprimirRetangulo() const;
 
-    // Métodos para criação e destruição
-    ~CRetangulo();  // Destruidor
+    ~CRetangulo();
 };
 
-#endif  // CRETANGULO_H
+#endif
