@@ -1,0 +1,19 @@
+#ifndef CFRACAO_H
+#define CFRACAO_H
+
+#include <iostream>
+#include <numeric>
+
+class CFracao {
+private:
+    int numerador;
+    int denominador;
+    void simplificar();
+
+public:
+    CFracao(int n = 1, int d = 1);
+    CFracao operator+(const CFracao& outra) const;
+    void imprimir() const;
+};
+
+#endif  // CFRACAO_H
