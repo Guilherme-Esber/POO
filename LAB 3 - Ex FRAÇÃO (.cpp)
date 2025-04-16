@@ -1,9 +1,7 @@
-// Arquivo CFracao.cpp - Implementação da classe CFracao
 #include "CFracao.h"
 #include <iostream>
 using namespace std;
 
-// Reduz fração
 CFracao CFracao::Reduzida(void) {
     int gcd = 1;
     int minimo = (m_numerador < m_denominador) ? m_numerador : m_denominador;
@@ -16,7 +14,6 @@ CFracao CFracao::Reduzida(void) {
     return (*this);
 }
 
-// Soma
 CFracao CFracao::Somar(CFracao _Fracao) {
     CFracao temp(m_numerador * _Fracao.m_denominador +
                  m_denominador * _Fracao.m_numerador,
@@ -24,7 +21,6 @@ CFracao CFracao::Somar(CFracao _Fracao) {
     return temp.Reduzida();
 }
 
-// Subtração
 CFracao CFracao::Subtrair(CFracao _Fracao) {
     CFracao temp(m_numerador * _Fracao.m_denominador -
                  m_denominador * _Fracao.m_numerador,
@@ -32,21 +28,18 @@ CFracao CFracao::Subtrair(CFracao _Fracao) {
     return temp.Reduzida();
 }
 
-// Multiplicação
 CFracao CFracao::Multiplicar(CFracao _Fracao) {
     CFracao temp(m_numerador * _Fracao.m_numerador,
                  m_denominador * _Fracao.m_denominador);
     return temp.Reduzida();
 }
 
-// Divisão
 CFracao CFracao::Dividir(CFracao _Fracao) {
     CFracao temp(m_numerador * _Fracao.m_denominador,
                  m_denominador * _Fracao.m_numerador);
     return temp.Reduzida();
 }
 
-// Comparações
 int CFracao::MenorQue(CFracao _Fracao) {
     return (m_numerador * _Fracao.m_denominador <
             m_denominador * _Fracao.m_numerador);
@@ -62,12 +55,10 @@ int CFracao::Igual(CFracao _Fracao) {
             m_denominador * _Fracao.m_numerador);
 }
 
-// Conversão
 float CFracao::ComoFloat(void) {
     return ((float)m_numerador / (float)m_denominador);
 }
 
-// Impressão
 void CFracao::Print(void) {
     cout << m_numerador << "/" << m_denominador;
 }
