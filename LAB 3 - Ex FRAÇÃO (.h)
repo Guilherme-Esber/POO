@@ -1,4 +1,3 @@
-// arquivo CFracao.h - interface para a classe CFracao
 #ifndef ID_CFRACAO
 #define ID_CFRACAO
 
@@ -7,48 +6,38 @@ protected:
     int m_numerador;
     int m_denominador;
 
-    // Reduz para a forma mais simples
     CFracao Reduzida(void);
 
 public:
-    // Construtor padrão
     CFracao(void) {
         m_numerador = 1;
         m_denominador = 1;
     }
 
-    // Construtor com parâmetros
     CFracao(int Num, int Denom) : m_numerador(Num), m_denominador(Denom) { }
 
-    // Construtor de cópia
     CFracao(const CFracao& f) {
         m_numerador = f.m_numerador;
         m_denominador = f.m_denominador;
     }
 
-    // Destrutor
     ~CFracao(void) { }
 
-    // Métodos de acesso
     int getNumerador(void) { return m_numerador; }
     int getDenominador(void) { return m_denominador; }
 
-    // Operações aritméticas
     CFracao Somar(CFracao _F);
     CFracao Subtrair(CFracao _F);
     CFracao Multiplicar(CFracao _F);
     CFracao Dividir(CFracao _F);
 
-    // Métodos de comparação
     int MenorQue(CFracao _Fracao);
     int MaiorQue(CFracao _Fracao);
     int Igual(CFracao _Fracao);
 
-    // Conversão
     float ComoFloat(void);
 
-    // Impressão
     void Print(void);
 };
 
-#endif // ID_CFRACAO
+#endif
