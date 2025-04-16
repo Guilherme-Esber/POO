@@ -1,6 +1,7 @@
 #include "CRetangulo.h"
 #include <iostream>
 #include <stdexcept>
+using namespace std;
 
 CRetangulo::CRetangulo() : comprimento(1), largura(1) {
     // Nenhuma mensagem aqui, pois não queremos mensagem para o construtor padrão
@@ -8,12 +9,12 @@ CRetangulo::CRetangulo() : comprimento(1), largura(1) {
 
 CRetangulo::CRetangulo(int c, int l) {
     if (c < 1 || c > 20 || l < 1 || l > 20) {
-        throw std::invalid_argument("Comprimento e largura devem estar entre 1 e 20.");
+        throw invalid_argument("Comprimento e largura devem estar entre 1 e 20.");
     }
     comprimento = c;
     largura = l;
-    std::cout << "O retângulo está sendo criado com dimensões (" << comprimento << "x" << largura << ")." << std::endl; // Aviso de criação
-    std::cout << std::endl;
+    cout << "O retângulo está sendo criado com dimensões (" << comprimento << "x" << largura << ")." << endl; // Aviso de criação
+    cout << endl;
 }
 
 int CRetangulo::getComprimento() const {
@@ -26,14 +27,14 @@ int CRetangulo::getLargura() const {
 
 void CRetangulo::setComprimento(int c) {
     if (c < 1 || c > 20) {
-        throw std::invalid_argument("Erro: O comprimento deve estar entre 1 e 20 unidades. Valor fornecido: " + std::to_string(c));
+        throw invalid_argument("Erro: O comprimento deve estar entre 1 e 20 unidades. Valor fornecido: " + std::to_string(c));
     }
     comprimento = c;
 }
 
 void CRetangulo::setLargura(int l) {
     if (l < 1 || l > 20) {
-        throw std::invalid_argument("Erro: A largura deve estar entre 1 e 20 unidades. Valor fornecido: " + std::to_string(l));
+        throw invalid_argument("Erro: A largura deve estar entre 1 e 20 unidades. Valor fornecido: " + to_string(l));
     }
     largura = l;
 }
@@ -53,12 +54,12 @@ bool CRetangulo::eQuadrado() const {
 void CRetangulo::imprimirRetangulo() const {
     for (int i = 0; i < largura; i++) {
         for (int j = 0; j < comprimento; j++) {
-            std::cout << "*";
+            cout << "*";
         }
-        std::cout << std::endl;
+        cout << endl;
     }
 }
 
 CRetangulo::~CRetangulo() {
-    std::cout << "O retângulo foi destruído!" << std::endl; // Mensagem de destruição
+    cout << "O retângulo foi destruído!" << endl; // Mensagem de destruição
 }
