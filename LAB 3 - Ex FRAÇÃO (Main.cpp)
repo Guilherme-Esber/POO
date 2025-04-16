@@ -1,39 +1,75 @@
 #include <iostream>
 #include "CFracao.h"
 
+using namespace std;
+
 int main() {
-    try {
-        int n1, d1, n2, d2;
+    int num1, den1, num2, den2;
 
-        // Solicitando ao usuário as frações
-        std::cout << "Digite o numerador e o denominador da primeira fracao: ";
-        std::cin >> n1 >> d1;
-        CFracao f1(n1, d1);   // Fração 1 com valores fornecidos pelo usuário
+    // Entrada de dados para a primeira fração
+    cout << "Digite o numerador da primeira fração: ";
+    cin >> num1;
+    cout << "Digite o denominador da primeira fração: ";
+    cin >> den1;
 
-        std::cout << "Digite o numerador e o denominador da segunda fracao: ";
-        std::cin >> n2 >> d2;
-        CFracao f2(n2, d2);   // Fração 2 com valores fornecidos pelo usuário
-        
-        // Imprimindo as frações
-        std::cout << "Fração 1: ";
-        f1.imprimir();
-
-        std::cout << "Fração 2: ";
-        f2.imprimir();
-        
-        // Somando as frações
-        CFracao soma = f1 + f2;
-
-        std::cout << "Soma das frações: ";
-        soma.imprimir();  // Soma das frações, não simplificada
-        
-        // A fração soma já será simplificada automaticamente
-        std::cout << "Soma simplificada: ";
-        soma.imprimir();  // Soma já simplificada
-
-    } catch (const std::exception& e) {
-        std::cerr << "Erro: " << e.what() << std::endl;
+    // Validar denominador
+    while (den1 == 0) {
+        cout << "Denominador não pode ser zero. Digite novamente: ";
+        cin >> den1;
     }
+
+    // Entrada de dados para a segunda fração
+    cout << "Digite o numerador da segunda fração: ";
+    cin >> num2;
+    cout << "Digite o denominador da segunda fração: ";
+    cin >> den2;
+
+    // Validar denominador
+    while (den2 == 0) {
+        cout << "Denominador não pode ser zero. Digite novamente: ";
+        cin >> den2;
+    }
+
+    // Criando frações com os valores informados
+    CFracao f1(num1, den1);
+    CFracao f2(num2, den2);
+
+    cout << "\nFração 1: ";
+    f1.Print();
+    cout << "\nFração 2: ";
+    f2.Print();
+
+    // Soma
+    CFracao soma = f1.Somar(f2);
+    cout << "\n\nSoma: ";
+    soma.Print();
+
+    // Subtração
+    CFracao subtracao = f1.Subtrair(f2);
+    cout << "\nSubtração: ";
+    subtracao.Print();
+
+    // Multiplicação
+    CFracao multiplicacao = f1.Multiplicar(f2);
+    cout << "\nMultiplicação: ";
+    multiplicacao.Print();
+
+    // Divisão
+    CFracao divisao = f1.Dividir(f2);
+    cout << "\nDivisão: ";
+    divisao.Print();
+
+    // Comparações
+    cout << "\n\nComparações:";
+    cout << "\nFração 1 < Fração 2? " << (f1.MenorQue(f2) ? "Sim" : "Não");
+    cout << "\nFração 1 > Fração 2? " << (f1.MaiorQue(f2) ? "Sim" : "Não");
+    cout << "\nFração 1 == Fração 2? " << (f1.Igual(f2) ? "Sim" : "Não");
+
+    // Como float
+    cout << "\n\nFração 1 como float: " << f1.ComoFloat();
+    cout << "\nFração 2 como float: " << f2.ComoFloat();
+
+    cout << "\n";
 
     return 0;
 }
