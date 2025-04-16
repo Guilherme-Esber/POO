@@ -1,32 +1,73 @@
+// Arquivo CFracao.cpp - Implementação da classe CFracao
 #include "CFracao.h"
+#include <iostream>
+using namespace std;
 
-// Função para calcular o GCD (Máximo Divisor Comum)
-int gcd(int a, int b) {
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
+// Reduz fração
+CFracao CFracao::Reduzida(void) {
+    int gcd = 1;
+    int minimo = (m_numerador < m_denominador) ? m_numerador : m_denominador;
+    for (int i = 1; i <= minimo; i++) {
+        if ((m_numerador % i == 0) && (m_denominador % i == 0))
+            gcd = i;
     }
-    return a;
+    m_numerador /= gcd;
+    m_denominador /= gcd;
+    return (*this);
 }
 
-CFracao::CFracao(int n, int d) : numerador(n), denominador(d) {
-    if (denominador == 0) throw std::invalid_argument("Denominador não pode ser zero");
-    simplificar();
+// Soma
+CFracao CFracao::Somar(CFracao _Fracao) {
+    CFracao temp(m_numerador * _Fracao.m_denominador +
+                 m_denominador * _Fracao.m_numerador,
+                 m_denominador * _Fracao.m_denominador);
+    return temp.Reduzida();
 }
 
-void CFracao::simplificar() {
-    int divisor = gcd(numerador, denominador);  // Agora usa a nossa função gcd
-    numerador /= divisor;
-    denominador /= divisor;
+// Subtração
+CFracao CFracao::Subtrair(CFracao _Fracao) {
+    CFracao temp(m_numerador * _Fracao.m_denominador -
+                 m_denominador * _Fracao.m_numerador,
+                 m_denominador * _Fracao.m_denominador);
+    return temp.Reduzida();
 }
 
-CFracao CFracao::operator+(const CFracao& outra) const {
-    int num = numerador * outra.denominador + denominador * outra.numerador;
-    int den = denominador * outra.denominador;
-    return CFracao(num, den);
+// Multiplicação
+CFracao CFracao::Multiplicar(CFracao _Fracao) {
+    CFracao temp(m_numerador * _Fracao.m_numerador,
+                 m_denominador * _Fracao.m_denominador);
+    return temp.Reduzida();
 }
 
-void CFracao::imprimir() const {
-    std::cout << numerador << "/" << denominador << std::endl;
+// Divisão
+CFracao CFracao::Dividir(CFracao _Fracao) {
+    CFracao temp(m_numerador * _Fracao.m_denominador,
+                 m_denominador * _Fracao.m_numerador);
+    return temp.Reduzida();
+}
+
+// Comparações
+int CFracao::MenorQue(CFracao _Fracao) {
+    return (m_numerador * _Fracao.m_denominador <
+            m_denominador * _Fracao.m_numerador);
+}
+
+int CFracao::MaiorQue(CFracao _Fracao) {
+    return (m_numerador * _Fracao.m_denominador >
+            m_denominador * _Fracao.m_numerador);
+}
+
+int CFracao::Igual(CFracao _Fracao) {
+    return (m_numerador * _Fracao.m_denominador ==
+            m_denominador * _Fracao.m_numerador);
+}
+
+// Conversão
+float CFracao::ComoFloat(void) {
+    return ((float)m_numerador / (float)m_denominador);
+}
+
+// Impressão
+void CFracao::Print(void) {
+    cout << m_numerador << "/" << m_denominador;
 }
