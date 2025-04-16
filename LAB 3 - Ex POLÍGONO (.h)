@@ -6,17 +6,15 @@
 
 class CPoligono {
 private:
-    int lados;            // Número de lados
-    int comprimentoLado;  // Comprimento de cada lado
+    int lados;
+    int comprimentoLado;
 
 public:
-    // Construtor
     CPoligono(int n, int c); 
 
-    // Métodos
-    double calcularArea() const;          // Método para calcular a área
-    double calcularPerimetro() const;     // Método para calcular o perímetro
-    void imprimirNome() const;            // Método para imprimir o nome do polígono
+    double calcularArea() const;
+    double calcularPerimetro() const;
+    void imprimirNome() const;
 };
 
 #endif
