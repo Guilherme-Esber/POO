@@ -3,10 +3,8 @@
 using namespace std;
 
 int main() {
-    // Criando um vetor de 5 objetos retângulos
-    CRetangulo* retangulos[5];  // Usando ponteiros para instanciar os retângulos
+    CRetangulo* retangulos[5];
 
-    // Definindo as dimensões de cada retângulo
     for (int i = 0; i < 5; i++) {
         cout << "Digite as dimensões do retângulo " << i + 1 << ":\n";
         int c, l;
@@ -14,10 +12,9 @@ int main() {
         cin >> c;
         cout << "Largura (1 a 20): ";
         cin >> l;
-        retangulos[i] = new CRetangulo(c, l);  // Aqui chamamos o construtor com parâmetros
+        retangulos[i] = new CRetangulo(c, l);
     }
 
-    // Exibindo os retângulos
     for (int i = 0; i < 5; i++) {
         cout << "\nRetângulo " << i + 1 << ":\n";
         retangulos[i]->imprimirRetangulo();
@@ -26,7 +23,6 @@ int main() {
         cout << (retangulos[i]->eQuadrado() ? "É um quadrado." : "Não é um quadrado.") << "\n";
     }
 
-    // Liberando a memória dos objetos
     for (int i = 0; i < 5; i++) {
         delete retangulos[i];
     }
