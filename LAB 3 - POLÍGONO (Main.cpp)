@@ -1,0 +1,37 @@
+#include <iostream>
+#include "CPoligono.h"
+#include "CPoligonoRegular.h"
+
+int main() {
+    try {
+        // Criando um polígono regular (Hexágono com lado 6)
+        CPoligonoRegular hexagono(6, 6);
+        
+        // Imprimir o nome do polígono
+        hexagono.imprimirNome();
+        
+        // Calcular e imprimir a área
+        std::cout << "Área: " << hexagono.calcularArea() << " unidades quadradas" << std::endl;
+        
+        // Calcular e imprimir o perímetro
+        std::cout << "Perímetro: " << hexagono.calcularPerimetro() << " unidades" << std::endl;
+        
+        // Criando um polígono regular (Quadrado com lado 4)
+        CPoligonoRegular quadrado(4, 4);
+        
+        // Imprimir o nome do polígono
+        quadrado.imprimirNome();
+        
+        // Calcular e imprimir a área
+        std::cout << "Área: " << quadrado.calcularArea() << " unidades quadradas" << std::endl;
+        
+        // Calcular e imprimir o perímetro
+        std::cout << "Perímetro: " << quadrado.calcularPerimetro() << " unidades" << std::endl;
+
+    } catch (const std::exception& e) {
+        // Em caso de erro, imprimir a mensagem
+        std::cerr << "Erro: " << e.what() << std::endl;
+    }
+
+    return 0;
+}
