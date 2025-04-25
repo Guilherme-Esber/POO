@@ -1,0 +1,42 @@
+#ifndef COMPLEXO_H
+#define COMPLEXO_H
+
+class Complexo {
+private:
+    double parteReal;
+    double parteImaginaria;
+    static int contador;
+
+public:
+    // Construtor sem parâmetros
+    Complexo();
+
+    // Construtor com parâmetros
+    Complexo(double real, double imag);
+
+    // Método para somar dois números complexos
+    Complexo somar(const Complexo& outro);
+
+    // Método para subtrair dois números complexos
+    Complexo subtrair(const Complexo& outro);
+
+    // Método para multiplicar dois números complexos
+    Complexo multiplicar(const Complexo& outro);
+
+    // Método para dividir dois números complexos
+    Complexo dividir(const Complexo& outro);
+
+    // Função para calcular o módulo do número complexo
+    double modulo();
+
+    // Função para imprimir o número complexo
+    void imprimir() const;
+
+    // Função para obter o número de objetos instanciados
+    static int getContador();
+
+    // Destruidor
+    ~Complexo();
+};
+
+#endif // COMPLEXO_H
