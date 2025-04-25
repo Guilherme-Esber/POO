@@ -1,0 +1,52 @@
+#include <iostream>
+#include "Complexo.h"
+
+using namespace std;
+
+int main() {
+    // Testando a classe Complexo
+    Complexo c1(3.0, 4.0); // 3 + 4i
+    Complexo c2(1.0, 2.0); // 1 + 2i
+
+    cout << "Número complexo c1: ";
+    c1.imprimir();
+    cout << endl;  // Espaço após imprimir o primeiro número complexo
+
+    cout << "Número complexo c2: ";
+    c2.imprimir();
+    cout << endl;  // Espaço após imprimir o segundo número complexo
+
+    // Somando c1 e c2
+    Complexo soma = c1.somar(c2);
+    cout << "Soma c1 + c2: ";
+    soma.imprimir();
+    cout << endl;  // Espaço após a soma
+
+    // Subtraindo c1 e c2
+    Complexo subtracao = c1.subtrair(c2);
+    cout << "Subtração c1 - c2: ";
+    subtracao.imprimir();
+    cout << endl;  // Espaço após a subtração
+
+    // Multiplicando c1 e c2
+    Complexo multiplicacao = c1.multiplicar(c2);
+    cout << "Multiplicação c1 * c2: ";
+    multiplicacao.imprimir();
+    cout << endl;  // Espaço após a multiplicação
+
+    // Dividindo c1 por c2
+    Complexo divisao = c1.dividir(c2);
+    cout << "Divisão c1 / c2: ";
+    divisao.imprimir();
+    cout << endl;  // Espaço após a divisão
+
+    // Módulo de c1
+    cout << "Módulo de c1: " << c1.modulo() << endl;
+    cout << endl;  // Espaço após mostrar o módulo
+
+    // Número de objetos Complexo instanciados
+    cout << "Número de objetos Complexo instanciados: " << Complexo::getContador() << endl;
+    cout << endl;  // Espaço após o contador de objetos
+
+    return 0;
+}
