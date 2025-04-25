@@ -1,0 +1,76 @@
+#include "Complexo.h"
+#include <cmath>
+#include <iostream>
+
+using namespace std;
+
+// Inicialização do contador
+int Complexo::contador = 0;
+
+// Construtor sem parâmetros
+Complexo::Complexo() : parteReal(0), parteImaginaria(0) {
+    contador++;
+    cout << "Construtor chamado: Novo número complexo instanciado (0 + 0i)" << endl;
+    cout << endl;  // Espaço após a criação do objeto
+}
+
+// Construtor com parâmetros
+Complexo::Complexo(double real, double imag) : parteReal(real), parteImaginaria(imag) {
+    contador++;
+    cout << "Construtor chamado: Novo número complexo instanciado (" 
+         << parteReal << " + " << parteImaginaria << "i)" << endl;
+    cout << endl;  // Espaço após a criação do objeto
+}
+
+// Método para somar dois números complexos
+Complexo Complexo::somar(const Complexo& outro) {
+    return Complexo(parteReal + outro.parteReal, parteImaginaria + outro.parteImaginaria);
+}
+
+// Método para subtrair dois números complexos
+Complexo Complexo::subtrair(const Complexo& outro) {
+    return Complexo(parteReal - outro.parteReal, parteImaginaria - outro.parteImaginaria);
+}
+
+// Método para multiplicar dois números complexos
+Complexo Complexo::multiplicar(const Complexo& outro) {
+    double real = parteReal * outro.parteReal - parteImaginaria * outro.parteImaginaria;
+    double imag = parteReal * outro.parteImaginaria + parteImaginaria * outro.parteReal;
+    return Complexo(real, imag);
+}
+
+// Método para dividir dois números complexos
+Complexo Complexo::dividir(const Complexo& outro) {
+    double denom = outro.parteReal * outro.parteReal + outro.parteImaginaria * outro.parteImaginaria;
+    double real = (parteReal * outro.parteReal + parteImaginaria * outro.parteImaginaria) / denom;
+    double imag = (parteImaginaria * outro.parteReal - parteReal * outro.parteImaginaria) / denom;
+    return Complexo(real, imag);
+}
+
+// Função para calcular o módulo do número complexo
+double Complexo::modulo() {
+    return sqrt(parteReal * parteReal + parteImaginaria * parteImaginaria);
+}
+
+// Função para imprimir o número complexo
+void Complexo::imprimir() const {
+    cout << parteReal;
+    if (parteImaginaria >= 0) {
+        cout << " + " << parteImaginaria << "i" << endl;
+    } else {
+        cout << " - " << -parteImaginaria << "i" << endl;
+    }
+}
+
+// Função para obter o número de objetos instanciados
+int Complexo::getContador() {
+    return contador;
+}
+
+// Destruidor
+Complexo::~Complexo() {
+    contador--;
+    cout << "Destruidor chamado: Número complexo destruído (" 
+         << parteReal << " + " << parteImaginaria << "i)" << endl;
+    cout << endl;  // Espaço após destruir o objeto
+}
