@@ -1,0 +1,37 @@
+#include <iostream>
+#include "CFracao.h"
+using namespace std;
+
+int main() {
+    CFracao f1, f2, f3;
+
+    cout << "Digite a primeira fração:" << endl;
+    cin >> f1;
+    cout << "Digite a segunda fração:" << endl;
+    cin >> f2;
+
+    cout << "\nFração 1: " << f1 << endl;
+    cout << "Fração 2: " << f2 << endl;
+
+    f3 = f1 + f2;
+    cout << "\nSoma: " << f3 << endl;
+
+    f3 = f1 - f2;
+    cout << "Subtração: " << f3 << endl;
+
+    f3 = f1 * f2;
+    cout << "Multiplicação: " << f3 << endl;
+
+    f3 = f1 / f2;
+    cout << "Divisão: " << f3 << endl;
+
+    cout << "\nComparações:" << endl;
+    cout << "Fração 1 < Fração 2? " << (f1.MenorQue(f2) ? "Sim" : "Não") << endl;
+    cout << "Fração 1 > Fração 2? " << (f1.MaiorQue(f2) ? "Sim" : "Não") << endl;
+    cout << "Fração 1 == Fração 2? " << (f1.Igual(f2) ? "Sim" : "Não") << endl;
+
+    cout << "\nFração 1 como float: " << f1.ComoFloat() << endl;
+    cout << "Fração 2 como float: " << f2.ComoFloat() << endl;
+
+    return 0;
+}
