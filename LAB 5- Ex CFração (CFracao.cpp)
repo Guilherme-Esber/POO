@@ -15,55 +15,49 @@ CFracao CFracao::Reduzida(void) {
 }
 
 CFracao CFracao::operator+(const CFracao& f) {
-    return CFracao(m_numerador * f.m_denominador + m_denominador * f.m_numerador,
-                   m_denominador * f.m_denominador).Reduzida();
+    CFracao temp(m_numerador * f.m_denominador + m_denominador * f.m_numerador,
+                 m_denominador * f.m_denominador);
+    return temp.Reduzida();
 }
 
 CFracao CFracao::operator-(const CFracao& f) {
-    return CFracao(m_numerador * f.m_denominador - m_denominador * f.m_numerador,
-                   m_denominador * f.m_denominador).Reduzida();
+    CFracao temp(m_numerador * f.m_denominador - m_denominador * f.m_numerador,
+                 m_denominador * f.m_denominador);
+    return temp.Reduzida();
 }
 
 CFracao CFracao::operator*(const CFracao& f) {
-    return CFracao(m_numerador * f.m_numerador, m_denominador * f.m_denominador).Reduzida();
+    CFracao temp(m_numerador * f.m_numerador, m_denominador * f.m_denominador);
+    return temp.Reduzida();
 }
 
 CFracao CFracao::operator/(const CFracao& f) {
-    return CFracao(m_numerador * f.m_denominador, m_denominador * f.m_numerador).Reduzida();
+    CFracao temp(m_numerador * f.m_denominador, m_denominador * f.m_numerador);
+    return temp.Reduzida();
 }
 
-ostream& operator<<(ostream& os, const CFracao& f) {
-    os << f.m_numerador << "/" << f.m_denominador;
-    return os;
+bool CFracao::operator<(const CFracao& f) {
+    return (m_numerador * f.m_denominador < m_denominador * f.m_numerador);
 }
 
-istream& operator>>(istream& is, CFracao& f) {
-    cout << "Digite o numerador: ";
-    is >> f.m_numerador;
-    cout << "Digite o denominador: ";
-    is >> f.m_denominador;
-
-    while (f.m_denominador == 0) {
-        cout << "Denominador não pode ser zero. Digite novamente: ";
-        is >> f.m_denominador;
-    }
-
-    return is;
+bool CFracao::operator>(const CFracao& f) {
+    return (m_numerador * f.m_denominador > m_denominador * f.m_numerador);
 }
 
-int CFracao::MenorQue(CFracao _Fracao) {
-    return (m_numerador * _Fracao.m_denominador <
-            m_denominador * _Fracao.m_numerador);
+bool CFracao::operator<=(const CFracao& f) {
+    return (m_numerador * f.m_denominador <= m_denominador * f.m_numerador);
 }
 
-int CFracao::MaiorQue(CFracao _Fracao) {
-    return (m_numerador * _Fracao.m_denominador >
-            m_denominador * _Fracao.m_numerador);
+bool CFracao::operator>=(const CFracao& f) {
+    return (m_numerador * f.m_denominador >= m_denominador * f.m_numerador);
 }
 
-int CFracao::Igual(CFracao _Fracao) {
-    return (m_numerador * _Fracao.m_denominador ==
-            m_denominador * _Fracao.m_numerador);
+bool CFracao::operator==(const CFracao& f) {
+    return (m_numerador * f.m_denominador == m_denominador * f.m_numerador);
+}
+
+bool CFracao::operator!=(const CFracao& f) {
+    return (m_numerador * f.m_denominador != m_denominador * f.m_numerador);
 }
 
 float CFracao::ComoFloat(void) {
