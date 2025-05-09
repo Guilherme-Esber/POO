@@ -3,35 +3,61 @@
 using namespace std;
 
 int main() {
-    CFracao f1, f2, f3;
+    int num1, den1, num2, den2;
 
-    cout << "Digite a primeira fração:" << endl;
-    cin >> f1;
-    cout << "Digite a segunda fração:" << endl;
-    cin >> f2;
+    cout << "Digite o numerador da primeira fração: ";
+    cin >> num1;
+    cout << "Digite o denominador da primeira fração: ";
+    cin >> den1;
 
-    cout << "\nFração 1: " << f1 << endl;
-    cout << "Fração 2: " << f2 << endl;
+    while (den1 == 0) {
+        cout << "Denominador não pode ser zero. Digite novamente: ";
+        cin >> den1;
+    }
 
-    f3 = f1 + f2;
-    cout << "\nSoma: " << f3 << endl;
+    cout << "Digite o numerador da segunda fração: ";
+    cin >> num2;
+    cout << "Digite o denominador da segunda fração: ";
+    cin >> den2;
 
-    f3 = f1 - f2;
-    cout << "Subtração: " << f3 << endl;
+    while (den2 == 0) {
+        cout << "Denominador não pode ser zero. Digite novamente: ";
+        cin >> den2;
+    }
 
-    f3 = f1 * f2;
-    cout << "Multiplicação: " << f3 << endl;
+    CFracao f1(num1, den1);
+    CFracao f2(num2, den2);
 
-    f3 = f1 / f2;
-    cout << "Divisão: " << f3 << endl;
+    cout << "\nFração 1: ";
+    f1.Print();
+    cout << "\nFração 2: ";
+    f2.Print();
 
-    cout << "\nComparações:" << endl;
-    cout << "Fração 1 < Fração 2? " << (f1.MenorQue(f2) ? "Sim" : "Não") << endl;
-    cout << "Fração 1 > Fração 2? " << (f1.MaiorQue(f2) ? "Sim" : "Não") << endl;
-    cout << "Fração 1 == Fração 2? " << (f1.Igual(f2) ? "Sim" : "Não") << endl;
+    CFracao soma = f1 + f2;
+    cout << "\n\nSoma: ";
+    soma.Print();
 
-    cout << "\nFração 1 como float: " << f1.ComoFloat() << endl;
-    cout << "Fração 2 como float: " << f2.ComoFloat() << endl;
+    CFracao subtracao = f1 - f2;
+    cout << "\nSubtração: ";
+    subtracao.Print();
+
+    CFracao multiplicacao = f1 * f2;
+    cout << "\nMultiplicação: ";
+    multiplicacao.Print();
+
+    CFracao divisao = f1 / f2;
+    cout << "\nDivisão: ";
+    divisao.Print();
+
+    cout << "\n\nComparações:";
+    cout << "\nFração 1 < Fração 2? " << (f1 < f2 ? "Sim" : "Não");
+    cout << "\nFração 1 > Fração 2? " << (f1 > f2 ? "Sim" : "Não");
+    cout << "\nFração 1 == Fração 2? " << (f1 == f2 ? "Sim" : "Não");
+
+    cout << "\n\nFração 1 como float: " << f1.ComoFloat();
+    cout << "\nFração 2 como float: " << f2.ComoFloat();
+
+    cout << "\n";
 
     return 0;
 }
