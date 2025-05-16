@@ -1,0 +1,73 @@
+#ifndef DATA_H
+#define DATA_H
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Data {
+private:
+    int dia, mes, ano;
+    string nomeMes(int m) const;
+
+public:
+    Data(int d = 1, int m = 1, int a = 2000);
+    friend istream& operator>>(istream& in, Data& d);
+    friend ostream& operator<<(ostream& out, const Data& d);
+    Data& operator++();      // Pré
+    Data operator++(int);    // Pós
+};
+
+#endif
+
+
+
+#include "Data.h"
+
+Data::Data(int d, int m, int a) : dia(d), mes(m), ano(a) {}
+
+istream& operator>>(istream& in, Data& d) {
+    cout << "Digite dia, mes e ano: ";
+    in >> d.dia >> d.mes >> d.ano;
+    return in;
+}
+
+ostream& operator<<(ostream& out, const Data& d) {
+    out << (d.dia < 10 ? "0" : "") << d.dia << " de " << d.nomeMes(d.mes) << " de " << d.ano;
+    return out;
+}
+
+string Data::nomeMes(int m) const {
+    string meses[] = {"janeiro", "fevereiro", "março", "abril", "maio", "junho",
+                      "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"};
+    return meses[m - 1];
+}
+
+Data& Data::operator++() {
+    ++dia;
+    return *this;
+}
+
+Data Data::operator++(int) {
+    Data temp = *this;
+    dia++;
+    return temp;
+}
+
+
+
+#include "Data.h"
+
+int main() {
+    Data d;
+    cin >> d;
+    cout << "Data: " << d << endl;
+
+    ++d;
+    cout << "Após pré-incremento: " << d << endl;
+
+    d++;
+    cout << "Após pós-incremento: " << d << endl;
+
+    return 0;
+}
