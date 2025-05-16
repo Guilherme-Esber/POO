@@ -1,0 +1,103 @@
+#ifndef LIVRO_H
+#define LIVRO_H
+
+#include <string>
+using namespace std;
+
+class Livro {
+protected:
+    string titulo;
+    string autor;
+    string isbn;
+    bool emprestado;
+
+public:
+    Livro(string t, string a, string i);
+    void emprestar();
+    void devolver();
+    bool estaEmprestado() const;
+    void mostrar() const;
+};
+
+#endif
+
+
+
+#include "Livro.h"
+#include <iostream>
+
+Livro::Livro(string t, string a, string i) : titulo(t), autor(a), isbn(i), emprestado(false) {}
+
+void Livro::emprestar() {
+    emprestado = true;
+}
+
+void Livro::devolver() {
+    emprestado = false;
+}
+
+bool Livro::estaEmprestado() const {
+    return emprestado;
+}
+
+void Livro::mostrar() const {
+    cout << "Título: " << titulo << "\nAutor: " << autor
+         << "\nISBN: " << isbn << "\nEmprestado: " << (emprestado ? "Sim" : "Não") << endl;
+}
+
+
+
+#ifndef LIVROLIVRARIA_H
+#define LIVROLIVRARIA_H
+
+#include "Livro.h"
+
+class LivroLivraria : public Livro {
+private:
+    double preco;
+    int estoque;
+
+public:
+    LivroLivraria(string t, string a, string i, double p, int e);
+    void vender(int qtd);
+};
+
+#endif
+
+
+
+#include "LivroLivraria.h"
+#include <iostream>
+using namespace std;
+
+LivroLivraria::LivroLivraria(string t, string a, string i, double p, int e)
+    : Livro(t, a, i), preco(p), estoque(e) {}
+
+void LivroLivraria::vender(int qtd) {
+    if (estoque >= qtd) {
+        estoque -= qtd;
+        cout << "Venda realizada. Total: R$" << preco * qtd << endl;
+    } else {
+        cout << "Estoque insuficiente!" << endl;
+    }
+}
+
+
+
+#include "Livro.h"
+#include "LivroLivraria.h"
+
+int main() {
+    Livro l("Dom Quixote", "Cervantes", "123456");
+    l.mostrar();
+    l.emprestar();
+    l.mostrar();
+    l.devolver();
+    l.mostrar();
+
+    LivroLivraria livraria("1984", "George Orwell", "987654", 45.5, 10);
+    livraria.vender(2);
+    livraria.vender(10);
+
+    return 0;
+}
