@@ -14,10 +14,11 @@ public:
         return *this;
     }
 
-    Ponto2D& operator++(int) {
+    Ponto2D operator++(int) {
+        Ponto2D temp = *this;
         ++x;
         ++y;
-        return *this;
+        return temp;
     }
 
     void imprimir() const {
@@ -36,7 +37,11 @@ int main() {
     p.imprimir();
 
     cout << "\nAplicando pós-incremento (p++): ";
-    p++;
+    Ponto2D antes = p++;
+    cout << "Antes (retorno de p++): ";
+    antes.imprimir();
+
+    cout << "Depois de p++: ";
     p.imprimir();
 
     return 0;
