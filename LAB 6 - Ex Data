@@ -89,8 +89,9 @@ int main() {
         cout << d << endl;
 
         cout << "Usando pós-incremento (d++): ";
-        d++;
-        cout << d << endl;
+        Data antes = d++;
+        cout << "Antes: " << antes << endl;
+        cout << "Depois: " << d << endl;
 
     } catch (const invalid_argument& e) {
         cerr << "Erro: " << e.what() << endl;
