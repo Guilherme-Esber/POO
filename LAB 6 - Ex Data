@@ -1,0 +1,100 @@
+#include <iostream>
+#include <string>
+#include <stdexcept>
+using namespace std;
+
+class Data {
+private:
+    int dia, mes, ano;
+
+    static const string nomesMeses[12];
+
+    int diasNoMes(int m, int a) const {
+        if (m == 2) {
+            return (a % 4 == 0 && (a % 100 != 0 || a % 400 == 0)) ? 29 : 28;
+        }
+        if (m == 4 || m == 6 || m == 9 || m == 11)
+            return 30;
+        return 31;
+    }
+
+    void incrementar() {
+        dia++;
+        if (dia > diasNoMes(mes, ano)) {
+            dia = 1;
+            mes++;
+            if (mes > 12) {
+                mes = 1;
+                ano++;
+            }
+        }
+    }
+
+public:
+    Data(int d = 1, int m = 1, int a = 2000) : dia(d), mes(m), ano(a) {}
+
+    friend istream& operator>>(istream& in, Data& data) {
+        int d, m, a;
+        in >> d >> m >> a;
+
+        if (m < 1 || m > 12)
+            throw invalid_argument("Mês inválido! Deve estar entre 1 e 12.");
+
+        Data temp(1, m, a);
+
+        if (d < 1 || d > temp.diasNoMes(m, a))
+            throw invalid_argument("Dia inválido para o mês fornecido.");
+
+        data.dia = d;
+        data.mes = m;
+        data.ano = a;
+        return in;
+    }
+
+    friend ostream& operator<<(ostream& out, const Data& data) {
+        out << (data.dia < 10 ? "0" : "") << data.dia
+            << " de " << nomesMeses[data.mes - 1]
+            << " de " << data.ano;
+        return out;
+    }
+
+    Data& operator++() {
+        incrementar();
+        return *this;
+    }
+
+    Data operator++(int) {
+        Data temp = *this;
+        incrementar();
+        return temp;
+    }
+};
+
+const string Data::nomesMeses[12] = {
+    "janeiro", "fevereiro", "março", "abril", "maio", "junho",
+    "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"
+};
+
+int main() {
+    Data d;
+
+    try {
+        cout << "Digite a data no formato: dia mes ano (ex: 29 2 2024): ";
+        cin >> d;
+
+        cout << "Data digitada: " << d << endl;
+
+        cout << "\nUsando pré-incremento (++d): ";
+        ++d;
+        cout << d << endl;
+
+        cout << "Usando pós-incremento (d++): ";
+        d++;
+        cout << d << endl;
+
+    } catch (const invalid_argument& e) {
+        cerr << "Erro: " << e.what() << endl;
+    }
+
+    return 0;
+}
