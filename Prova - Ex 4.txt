@@ -1,0 +1,29 @@
+a) F – "esse valor fica disponível somente para o objeto que realizou essa alteração", Alterações nele afetam todos os objetos da classe.
+
+b) V
+
+c) V
+
+d) F – "não é uma inicialização válida", Essa forma de inicialização é válida em C++11.
+
+e) V
+
+f) V
+
+g) V
+
+h) V
+
+i) V
+
+j) F – "precisa, obrigatoriamente, ser colocado dentro de classes", funções e variáveis podem existir fora de classes, como no main() ou funções livres.
+
+k) F – "Somente...", Há outras formas de controlar o acesso (como friend e os padrões de struct).
+
+l) V
+
+m) V
+
+n) F – "a sintaxe para declarar um construtor de cópia é", falta o operador de referência (&).
+
+o) V
