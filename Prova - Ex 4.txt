@@ -24,6 +24,6 @@ l) V
 
 m) V
 
-n) F – "a sintaxe para declarar um construtor de cópia é", falta o operador de referência (&).
+n) F – "a sintaxe para declarar um construtor de cópia é: CNomeClasse ( const CNomeClasse )", falta o operador de referência (&).
 
 o) V
