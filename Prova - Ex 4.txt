@@ -18,7 +18,7 @@ i) V
 
 j) F – "precisa, obrigatoriamente, ser colocado dentro de classes", funções e variáveis podem existir fora de classes, como no main() ou funções livres.
 
-k) F – "Somente...", Há outras formas de controlar o acesso (como friend e os padrões de struct).
+k) V - Mas existem declarações como friend que concedem acesso especial a funções e classes externas. Além disso, struct difere da class no padrão de acesso dos seus membros (público por padrão).
 
 l) V
 
