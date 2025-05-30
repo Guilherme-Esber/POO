@@ -1,71 +1,47 @@
-#ifndef POLITICO_H
-#define POLITICO_H
+#ifndef POLITICOS_H
+#define POLITICOS_H
 
-#include <iostream>
 #include <string>
+#include <iostream>
+
 using namespace std;
 
 class Politico {
 protected:
-    string nome, partido, numero;
+    string nome;
 
 public:
-    Politico(string n, string p, string nu) : nome{n}, partido{p}, numero{nu} {
-        cout << "Construindo Politico!" << endl;
-    }
+    Politico(const string& nome);
+    virtual ~Politico() = default;
 
-    virtual void imprime();
-    virtual ~Politico() {
-        cout << "Destruindo Politico!" << endl << endl;
-    }
+    virtual void Imprime() const;
 };
 
 class Presidente : public Politico {
-protected:
-    string pais;
+private:
+    int mandato;
 
 public:
-    Presidente(string nome, string partido, string numero, string p)
-        : Politico(nome, partido, numero), pais{p} {
-        cout << "Construindo Presidente!" << endl;
-    }
-
-    void imprime() override;
-    ~Presidente() override {
-        cout << "Destruindo Presidente!" << endl;
-    }
+    Presidente(const string& nome, int mandato);
+    void Imprime() const override;
 };
 
-class Governador : public Presidente {
-protected:
+class Governador : public Politico {
+private:
     string estado;
 
 public:
-    Governador(string nome, string partido, string numero, string pais, string e)
-        : Presidente(nome, partido, numero, pais), estado{e} {
-        cout << "Construindo Governador!" << endl;
-    }
-
-    void imprime() override;
-    ~Governador() override {
-        cout << "Destruindo Governador!" << endl;
-    }
+    Governador(const string& nome, const string& estado);
+    void Imprime() const override;
 };
 
-class Prefeito : public Governador {
-protected:
+class Prefeito : public Politico {
+private:
     string cidade;
 
 public:
-    Prefeito(string nome, string partido, string numero, string pais, string estado, string c)
-        : Governador(nome, partido, numero, pais, estado), cidade{c} {
-        cout << "Construindo Prefeito!" << endl << endl;
-    }
-
-    void imprime() override;
-    ~Prefeito() override {
-        cout << "Destruindo Prefeito!" << endl;
-    }
+    Prefeito(const string& nome, const string& cidade);
+    void Imprime() const override;
 };
 
 #endif
