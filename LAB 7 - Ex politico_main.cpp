@@ -1,26 +1,18 @@
-#include <iostream>
-#include "politico.h"
+#include "Politicos.h"
 
 int main() {
-    cout << "## POLITICO COMPLETO ##" << endl << endl;
+    Presidente p("João Silva", 4);
+    p.Imprime();
 
-    Prefeito p("Nome1", "P1", "1", "Brasil", "MG", "Itajuba");
-    cout << "*******************" << endl << endl;
-    cout << "# Prefeito 01 #" << endl;
-    p.imprime();
+    cout << endl;
 
-    Governador g("Nome2", "P2", "2", "Brasil", "RJ");
-    cout << endl << "# Governador 01 #" << endl;
-    g.imprime();
+    Governador g("Maria Oliveira", "São Paulo");
+    g.Imprime();
 
-    Presidente pr("Nome3", "P3", "3", "Brasil");
-    cout << endl << "# Presidente 01 #" << endl;
-    pr.imprime();
+    cout << endl;
 
-    Politico pi("Nome4", "P4", "0");
-    cout << endl << "# Politico 01 #" << endl;
-    pi.imprime();
+    Prefeito pf("Carlos Souza", "Campinas");
+    pf.Imprime();
 
-    cout << "*******************" << endl << endl;
     return 0;
 }
