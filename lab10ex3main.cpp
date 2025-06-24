@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 #include "pilha.h"
 
 int main() {
@@ -45,7 +44,7 @@ int main() {
             try {
                 pilhaDePilhas.pop(&temp);
                 std::cout << temp << std::endl;
-            } catch (...) {
+            } catch (const std::exception&) {
                 break;
             }
         }
