@@ -5,9 +5,6 @@
 #include <iostream>
 
 template <typename T>
-Vetor<T>::Vetor() {}
-
-template <typename T>
 void Vetor<T>::Adiciona(const T& valor) {
     elementos.push_back(valor);
 }
@@ -22,9 +19,8 @@ void Vetor<T>::Exibe() const {
 
 template <typename T>
 void Vetor<T>::Ordena() {
-    // Verifica se o tipo T pode ser comparado usando <
-    if constexpr (!std::is_arithmetic<T>::value && !std::is_convertible<decltype(std::declval<T>() < std::declval<T>()), bool>::value) {
-        throw std::logic_error("Tipo não pode ser ordenado: operador < não está definido.");
+    if constexpr (!std::is_convertible<decltype(std::declval<T>() < std::declval<T>()), bool>::value) {
+        throw std::logic_error("Erro: Tipo não pode ser ordenado (falta operador <).");
     }
 
     try {
@@ -34,4 +30,13 @@ void Vetor<T>::Ordena() {
     }
 }
 
+template <typename T>
+void Vetor<T>::EntradaDeDados(int quantidade) {
+    T valor;
+    for (int i = 0; i < quantidade; ++i) {
+        std::cout << "Digite o valor " << (i + 1) << ": ";
+        std::cin >> valor;
+        Adiciona(valor);
+    }
+}
 #endif
