@@ -3,6 +3,7 @@
 #define VETOR_H
 
 #include <vector>
+#include <iostream>
 #include <stdexcept>
 #include <algorithm>
 #include <type_traits>
@@ -13,12 +14,11 @@ private:
     std::vector<T> elementos;
 
 public:
-    Vetor();
     void Adiciona(const T& valor);
     void Exibe() const;
     void Ordena();
+    void EntradaDeDados(int quantidade);
 };
 
 #include "Vetor.tpp"
-
 #endif
