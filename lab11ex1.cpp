@@ -1,5 +1,3 @@
-// ex01.cpp - Demonstração de Pilha (stack) usando STL
-
 #include <iostream>
 #include <stack>
 using namespace std;
