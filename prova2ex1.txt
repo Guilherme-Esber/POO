@@ -1,0 +1,43 @@
+
+a( V ) Ao menos um bloco catch deve vir após um bloco try, mas podem existir vários, um para cada exceção que poderia ocorrer dentro do try.
+
+b( V ) A definição de um template de uma função começa com a palavra template, seguida da lista de parâmetros de template.
+
+c( V ) Os Iteradores são componentes utilizados para percorrer os elementos de um contêiner da mesma forma que um índice percorre os elementos de um array comum.
+
+d( V ) Contêineres são estruturas de dados que servem para armazenar valores (de tipos básicos ou criados) e prover métodos de acesso, cada um segundo seu próprio tipo.
+
+e( V ) Utilizamos catch (...) para pegar qualquer exceção que foi lançada dentro de um bloco try.
+
+f( V ) Após tratada a exceção, o programa não retoma a execução do ponto onde parou, mas segue sua execução a partir da primeira instrução após o último catch do bloco try.
+
+g( F ) São exemplos de Containers Sequenciais: vector, deque, list e priority_queue.  
+Errado: `priority_queue` NÃO é sequencial, é um adaptador de contêiner.
+
+h( V ) O modelo de sintaxe para declarar uma função template é:  
+template <typename T> tipoRetorno NomeFunc( Parametros ){ .... }
+
+i( V ) As classes que derivam (direta ou indiretamente) de exception contém a função virtual what(), que retorna a mensagem de erro de um objeto de exceção (string).
+
+j( F ) A classe Stack da STL é um container de 1ª classe.  
+Errado: `stack` é um container adaptador, não um container de primeira classe.
+
+k( V ) Um pair é composto por dois itens, chamados de first e second.
+
+l( V ) Em C++ é possível derivar uma classe não template de uma classe template.
+
+m( F ) Uma exceção de uma classe mais genérica deve ser tratada por um bloco catch antes de uma exceção mais específica.  
+Errado: O bloco catch para exceção mais GENÉRICA deve vir depois dos específicos.
+
+n( F ) A classe da STL utilizada para a implementação de uma fila com prioridade é a queue.  
+Errado:** É a `priority_queue`.
+
+o( F ) Para lançar uma exceção em C++ utilizamos a palavra reservada try.  
+Errado: Usa-se a palavra reservada `throw`.
+
+p( V ) Os maps guardam pares ordenados compostos por uma chave e um valor.
+
+q( F ) Considerando uma hierarquia de classes definida em C++, uma função virtual pura precisa ser implementada na classe base, para que objetos das classes derivadas tenham acesso a ela.  
+Errado: Função virtual pura NÃO é implementada na base, apenas declarada (=0).
+
+r( V ) Em Orientação a Objetos a Resolução Dinâmica de Métodos permite que o programador crie códigos genéricos que podem ser reaproveitados quando novas classes são inseridas na hierarquia.
