@@ -1,30 +1,61 @@
-a)
+a) Atributos e Métodos Acessíveis em DerivadaB:
 
-m_A1 = public
-F1Base = public
-m_A2 = protected
-F2Base = protected
+    m_A1 (public) → Acessível como public
 
-b)
+    F1Base(int) (public) → Acessível como public
 
-m_A1 = private
-F1Base = private
-m_A2 = private
-F2Base = private
+    m_A2 (protected) → Acessível como protected
 
-c)
+    F2Base(void) (protected) → Acessível como protected
 
-Membros próprios da DerivadaC:
-m_C1 (private) → não acessível  
-m_C2 (protected) → protected  
-m_C3 (public) → public  
-F1DC (protected) → protected  
-F2DC (public) → public  
+    m_A3 (private) → Não acessível
 
-Todos os membros herdados de ClasseBase para DerivadaC tornaram-se private; portanto, DerivadaD não pode acessá-los.
-Assim, para DerivadaD, membros de ClasseBase estão inacessíveis.
+    F1Base (private) → Não acessível
 
-m_C2 = protected      
-F1DC = protected      
-m_C3 = public         
-F2DC  = public
+    m_B1 (public) → Acessível como public
+
+    m_B2 (protected) → Acessível como protected
+
+    F1DB(void) (protected) → Acessível como protected
+
+    m_B3 (private) → Não acessível
+
+    F2DB(void) (private) → Não acessível
+
+b) Atributos e Métodos Acessíveis em DerivadaC:
+
+    m_A1 (public) → Acessível como private
+
+    F1Base(int) (public) → Acessível como private
+
+    m_A2 (protected) → Acessível como private
+
+    F2Base(void) (protected) → Acessível como private
+
+    m_A3 (private) → Não acessível
+
+    F1DC(void) (protected) → Acessível como protected
+
+    m_C2 (protected) → Acessível como protected
+
+    m_C3 (public) → Acessível como public
+
+    F2DC(void) (public) → Acessível como public
+
+c) Atributos e Métodos Acessíveis em DerivadaD (herdada publicamente de DerivadaC):
+
+    m_C3 (public) → Acessível como public
+
+    F2DC(void) (public) → Acessível como public
+
+    m_C2 (protected) → Acessível como protected
+
+    F1DC(void) (protected) → Acessível como protected
+
+    m_A1 (public) → Não acessível diretamente (herdado como private em DerivadaC)
+
+    F1Base(int) (public) → Não acessível diretamente (herdado como private em DerivadaC)
+
+    m_A2 (protected) → Não acessível diretamente (herdado como private em DerivadaC)
+
+    F2Base(void) (protected) → Não acessível diretamente (herdado como private em DerivadaC)
